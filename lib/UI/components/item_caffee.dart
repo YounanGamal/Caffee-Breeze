@@ -8,7 +8,7 @@ class ItemCaffe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8),
+      margin: EdgeInsets.only(left: 15,right: 18,bottom: 10),
       width: double.infinity,
       height: 57,
       decoration: BoxDecoration(
