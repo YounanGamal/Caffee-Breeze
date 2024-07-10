@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/UI/home/home_screen.dart';
+import 'package:untitled/UI/information_page/info_screen.dart';
 
 void main() {
   runApp(CaffeeBreeze());
@@ -11,6 +13,27 @@ class CaffeeBreeze extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+              iconTheme: IconThemeData(color: Colors.black, size: 40),
+              backgroundColor: Color(0xffE1E0DD),
+              titleTextStyle: TextStyle(
+                  fontFamily: 'Indie Flower',
+                  fontSize: 40,
+                  fontWeight: FontWeight.w400)),
+          primaryColor: Color(0xffC29377),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Color(0xffE1E0DD),
+            primary: Color(0xffE1E0DD),
+            onPrimary: Colors.black,
+            secondary: Color(0xffC29377),
+            onSecondary: Color(0xff2C100B),
+          )),
+      routes: {
+        HomeScreen.routeName: (context) => HomeScreen(),
+        InfoScreen.routeName: (context) => InfoScreen(),
+      },
+      initialRoute: HomeScreen.routeName,
     );
   }
 }
