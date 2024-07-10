@@ -44,7 +44,10 @@ class _HomeScreenTabState extends State<HomeScreenTab> {
             ),
           ),
           ImageScrole(),
-          Text('caffee'),
+          Padding(
+            padding: const EdgeInsets.only(left: 23.0,top: 8,bottom: 8),
+            child: Text('caffee'),
+          ),
           Expanded(
             child: ListView.builder(
               itemCount: caffee.length,

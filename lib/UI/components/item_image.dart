@@ -7,6 +7,7 @@ class ItemImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: Alignment.topLeft,
       children: [
         Container(
           decoration: BoxDecoration(
@@ -22,17 +23,17 @@ class ItemImage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.only(left: 10,bottom: 20),
                   child: Text(
                     ' for Today',
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
-                        fontSize: 20),
+                        fontSize: 18),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 28, top: 10),
+                  padding: EdgeInsets.only(left: 28,),
                   child: Text(
                     'Order any coffee and',
                     style: TextStyle(
