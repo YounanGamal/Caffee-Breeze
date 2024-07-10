@@ -1,11 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/UI/auth/sing_in/singin_screen.dart';
 import 'package:untitled/UI/auth/sing_up/singup_screen.dart';
 import 'package:untitled/UI/auth/start_screen/start_screen.dart';
 import 'package:untitled/UI/home/home_screen.dart';
 import 'package:untitled/UI/information_page/info_screen.dart';
+import 'package:untitled/firebase_options.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(CaffeeBreeze());
 }
 
@@ -40,7 +46,7 @@ class CaffeeBreeze extends StatelessWidget {
         SingInScreen.routeName:(context)=>SingInScreen(),
         SingUpScreen.routeName:(context)=>SingUpScreen(),
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute: SingInScreen.routeName,
     );
   }
 }

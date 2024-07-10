@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "183281990207",
+    "project_id": "caffee-breeze",
+    "storage_bucket": "caffee-breeze.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183281990207:android:07c764f224e0ccffa3968a",
+        "android_client_info": {
+          "package_name": "com.example.caffee_breeze"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_7vlxCo7-sbUlS_JO1IqKCZ2fTOto3Vw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183281990207:android:9bc3b9ec4efd6e31a3968a",
+        "android_client_info": {
+          "package_name": "com.example.untitled"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_7vlxCo7-sbUlS_JO1IqKCZ2fTOto3Vw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
