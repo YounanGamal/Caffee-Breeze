@@ -38,8 +38,8 @@ class DialogUtils {
     if (posActionTitle != null) {
       actions.add(TextButton(
           onPressed: () {
-            posAction?.call();
             Navigator.pop(context);
+            posAction?.call();
           },
           child: Text(
             posActionTitle,
@@ -49,8 +49,8 @@ class DialogUtils {
     if (negActionTitel != null) {
       actions.add(TextButton(
         onPressed: () {
-          negAction?.call();
           Navigator.pop(context);
+          negAction?.call();
         },
         child: Text(
           negActionTitel,

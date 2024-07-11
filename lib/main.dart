@@ -7,7 +7,7 @@ import 'package:untitled/UI/home/home_screen.dart';
 import 'package:untitled/UI/information_page/info_screen.dart';
 import 'package:untitled/firebase_options.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -24,7 +24,6 @@ class CaffeeBreeze extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           appBarTheme: const AppBarTheme(
-
               iconTheme: IconThemeData(color: Color(0xff552F22), size: 40),
               backgroundColor: Color(0xffE1E0DD),
               titleTextStyle: TextStyle(
@@ -42,11 +41,11 @@ class CaffeeBreeze extends StatelessWidget {
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
         InfoScreen.routeName: (context) => InfoScreen(),
-        StartScreen.routeName:(context)=>StartScreen(),
-        SingInScreen.routeName:(context)=>SingInScreen(),
-        SingUpScreen.routeName:(context)=>SingUpScreen(),
+        StartScreen.routeName: (context) => StartScreen(),
+        SingInScreen.routeName: (context) => SingInScreen(),
+        SingUpScreen.routeName: (context) => SingUpScreen(),
       },
-      initialRoute: SingInScreen.routeName,
+      initialRoute: StartScreen.routeName,
     );
   }
 }

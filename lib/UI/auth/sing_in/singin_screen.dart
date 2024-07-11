@@ -33,7 +33,11 @@ class _SingInScreenState extends State<SingInScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/image/Rectangle 2.png',width: double.infinity,fit: BoxFit.cover,),
+              Image.asset(
+                'assets/image/Rectangle 2.png',
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -153,7 +157,7 @@ class _SingInScreenState extends State<SingInScreen> {
       );
       UserCredential credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
+              email: emailController.text, password: passwordController.text);
       DialogUtils.hideDialog(context);
       DialogUtils.showMessage(
         context,

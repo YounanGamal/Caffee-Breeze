@@ -264,6 +264,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
           Navigator.pushReplacementNamed(context, SingInScreen.routeName);
         },
       );
+          
       print('uid = ${credential.user?.uid}');
     } on FirebaseAuthException catch (e) {
       DialogUtils.hideDialog(context);
