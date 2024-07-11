@@ -2,20 +2,41 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/UI/auth/sing_in/singin_screen.dart';
 import 'package:untitled/UI/components/custom_text_form_field.dart';
-import 'package:untitled/uites/email_valid.dart';
+import 'package:untitled/Utils/dialog_utils.dart';
+import 'package:untitled/Utils/email_valid.dart';
 
-class SingUpScreen extends StatelessWidget {
+class SingUpScreen extends StatefulWidget {
   static const String routeName = 'SingUp';
-  TextEditingController nameController = TextEditingController(text: 'ewrwerwer');
-  TextEditingController dateOfBirthController = TextEditingController(text: '2005');
-  TextEditingController placeController = TextEditingController(text: 'adwedeceef');
-  TextEditingController phoneController = TextEditingController(text: '01208106259');
-  TextEditingController emailController = TextEditingController(text: 'you@ret.uuy');
-  TextEditingController passwordController = TextEditingController(text: '123456789');
-  TextEditingController passwordConfirmController = TextEditingController(text: '123456789');
-  var formKey = GlobalKey<FormState>();
 
   SingUpScreen({super.key});
+
+  @override
+  State<SingUpScreen> createState() => _SingUpScreenState();
+}
+
+class _SingUpScreenState extends State<SingUpScreen> {
+  TextEditingController nameController =
+      TextEditingController(text: 'ewrwerwer');
+
+  TextEditingController dateOfBirthController =
+      TextEditingController(text: '2005');
+
+  TextEditingController placeController =
+      TextEditingController(text: 'adwedeceef');
+
+  TextEditingController phoneController =
+      TextEditingController(text: '01211111111');
+
+  TextEditingController emailController =
+      TextEditingController(text: 'you@ret.uuy');
+
+  TextEditingController passwordController =
+      TextEditingController(text: '123456789');
+
+  TextEditingController passwordConfirmController =
+      TextEditingController(text: '123456789');
+
+  var formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -227,58 +248,35 @@ class SingUpScreen extends StatelessWidget {
       return;
     }
     try {
+      DialogUtils.showLoadingDialog(context, 'Loading...!');
       final credential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
+      DialogUtils.hideDialog(context);
+      DialogUtils.showMessage(
+        context,
+        'User registered Successfully',
+        posActionTitle: 'Ok',
+        negActionTitel: 'Cancle',
+        posAction: () {
+          Navigator.pushReplacementNamed(context, SingInScreen.routeName);
+        },
+      );
+          
       print('uid = ${credential.user?.uid}');
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+      DialogUtils.hideDialog(context);
+      if (e.code == 'weak-password' || e.code == 'email-already-in-use') {
+        DialogUtils.showMessage(
+          context,
+          'The password provided is too weak.',
+          posActionTitle: 'try agin',
+        );
       }
     } catch (e) {
-      // print(e);
+      DialogUtils.showMessage(context, '${e.toString()}');
     }
-
-
-    // try {
-    //   // DialogUtils.showLoadingDialog(context, 'Loading...!');
-    //   UserCredential result =
-    //   await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    //     email: emailController.text,
-    //     password: passwordController.text,
-    //   );
-    //   // DialogUtils.hideDialog(context);
-    //   // DialogUtils.showMessage(
-    //   //   context,
-    //   //   'User registered Successfully',
-    //   //   posActionTitle: 'Ok',
-    //   //   negActionTitel: 'Cancle',
-    //   //   posAction: () {
-    //   //     Navigator.pushReplacementNamed(context, LoginScreenWidget.routeName);
-    //   //   },
-    //   // );
-    // } on FirebaseAuthException catch (e) {
-    // DialogUtils.hideDialog(context);
-    // if (e.code == FirebaseErrorCodes.weakPassword) {
-    // DialogUtils.showMessage(
-    //   context,
-    //   'The password provided is too weak.',
-    //   posActionTitle: 'try agin',
-    // );
-    // } else if (e.code == FirebaseErrorCodes.emailInUse) {
-    // DialogUtils.showMessage(
-    //   context,
-    //   'The account already exists for that email.',
-    //   posActionTitle: 'try agin',
-    // );
-    // }
-    // } catch (e) {
-    // DialogUtils.showMessage(context, '${e.toString()}');
-    // }
-    // }
   }
 }

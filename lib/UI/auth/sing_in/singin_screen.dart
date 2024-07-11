@@ -1,14 +1,26 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/Core/firebase_error_codes.dart';
 import 'package:untitled/UI/auth/sing_up/singup_screen.dart';
 import 'package:untitled/UI/components/custom_text_form_field.dart';
-import 'package:untitled/uites/email_valid.dart';
+import 'package:untitled/UI/home/home_screen.dart';
+import 'package:untitled/Utils/dialog_utils.dart';
+import 'package:untitled/Utils/email_valid.dart';
 
-class SingInScreen extends StatelessWidget {
+class SingInScreen extends StatefulWidget {
   SingInScreen({super.key});
 
   static const String routeName = 'Sing_In';
+
+  @override
+  State<SingInScreen> createState() => _SingInScreenState();
+}
+
+class _SingInScreenState extends State<SingInScreen> {
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
+
   var formKey = GlobalKey<FormState>();
 
   @override
@@ -21,7 +33,11 @@ class SingInScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/image/Rectangle 2.png',width: double.infinity,fit: BoxFit.cover,),
+              Image.asset(
+                'assets/image/Rectangle 2.png',
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -133,6 +149,34 @@ class SingInScreen extends StatelessWidget {
   logIn() async {
     if (!(formKey.currentState!.validate())) {
       return;
+    }
+    try {
+      DialogUtils.showLoadingDialog(
+        context,
+        'Loading...!',
+      );
+      UserCredential credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: emailController.text, password: passwordController.text);
+      DialogUtils.hideDialog(context);
+      DialogUtils.showMessage(
+        context,
+        'Login Successfully !',
+        posActionTitle: 'Ok',
+        negActionTitel: 'Cancle',
+        posAction: () {
+          Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+        },
+      );
+    } on FirebaseAuthException catch (e) {
+      DialogUtils.hideDialog(context);
+      if (e.code == FirebaseErrorCodes.userNotFound ||
+          e.code == FirebaseErrorCodes.wrongPassword) {
+        DialogUtils.showMessage(context, 'Error email or password!',
+            posActionTitle: 'try agin');
+      }
+    } catch (e) {
+      DialogUtils.showMessage(context, '${e.toString()}');
     }
   }
 }

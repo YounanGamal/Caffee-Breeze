@@ -24,19 +24,19 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       color: Color(0xffE1E0DD),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: const Padding(
-            padding: EdgeInsets.only(
-              top: 10,
-              left: 23,
-            ),
-            child: Text(
-              'Hello',
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
-        ),
+        // backgroundColor: Colors.transparent,
+        // appBar: AppBar(
+        //   title: const Padding(
+        //     padding: EdgeInsets.only(
+        //       top: 10,
+        //       left: 23,
+        //     ),
+        //     child: Text(
+        //       'Hello',
+        //       style: TextStyle(color: Colors.black),
+        //     ),
+        //   ),
+        // ),
         body: tabs[selectedIcon],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedIcon,

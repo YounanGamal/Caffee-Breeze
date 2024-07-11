@@ -23,9 +23,22 @@ class _HomeScreenTabState extends State<HomeScreenTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      child: Column(
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: const Padding(
+          padding: EdgeInsets.only(
+            top: 10,
+            left: 23,
+          ),
+          child: Text(
+            'Hello',
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+      ),
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
