@@ -6,6 +6,7 @@ import 'package:untitled/UI/home/profile_tab/myprofile_screen_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -15,10 +16,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> tabs = [
     HomeScreenTab(),
-    CardScreenTab(),
     FevoriteScreenTab(),
+    CardScreenTab(),
     MyprofileScreenTab()
   ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,9 +76,14 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: Color(0xff552F22),
             ),
           ],
-          selectedIconTheme: const IconThemeData(color: Colors.black, size: 28),
-          unselectedIconTheme:
-              const IconThemeData(color: Colors.white, size: 28),
+          selectedIconTheme: const IconThemeData(
+            color: Colors.black,
+            size: 28,
+          ),
+          unselectedIconTheme: const IconThemeData(
+            color: Colors.white,
+            size: 28,
+          ),
         ),
       ),
     );
