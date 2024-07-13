@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/UI/home_details/home_details.dart';
 
-import '../information_page/info_screen.dart';
 
 class ImageScrole extends StatefulWidget {
   @override
@@ -21,7 +21,7 @@ class _ImageScroleState extends State<ImageScrole> {
             padding: const EdgeInsets.only(left: 7),
             child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, InfoScreen.routeName);
+                  Navigator.pushNamed(context, HomeDetails.routeName);
                 },
                 child: Image.asset('assets/image/Rectangle ${index + 4}.png')),
           );

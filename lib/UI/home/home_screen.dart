@@ -26,63 +26,84 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       color: Color(0xffE1E0DD),
       child: Scaffold(
-        // backgroundColor: Colors.transparent,
-        // appBar: AppBar(
-        //   title: const Padding(
-        //     padding: EdgeInsets.only(
-        //       top: 10,
-        //       left: 23,
-        //     ),
-        //     child: Text(
-        //       'Hello',
-        //       style: TextStyle(color: Colors.black),
-        //     ),
-        //   ),
-        // ),
+        backgroundColor: Colors.transparent,
         body: tabs[selectedIcon],
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selectedIcon,
-          onTap: (index) {
-            selectedIcon = index;
-            setState(() {});
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage(
-                  'assets/image/Vector.png',
-                ),
+        bottomNavigationBar: Container(
+          color: Color(0xffC29377),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xff552F22),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(15),
               ),
-              label: '',
-              backgroundColor: Color(0xff552F22),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: '',
-              backgroundColor: Color(0xff552F22),
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage(
-                  'assets/image/Mask group.png',
+            child: NavigationBar(
+              height: 70,
+              // backgroundColor: Color(0xff552F22),
+              backgroundColor: Colors.transparent,
+              indicatorColor: Colors.transparent,
+
+              selectedIndex: selectedIcon,
+              onDestinationSelected: (value) {
+                selectedIcon = value;
+                setState(() {});
+              },
+              destinations: const [
+                NavigationDestination(
+                  icon: ImageIcon(
+                    color: Colors.white,
+                    AssetImage(
+                      'assets/image/Vector.png',
+                    ),
+                  ),
+                  selectedIcon: ImageIcon(
+                    color: Color(0xff220C09),
+                    AssetImage(
+                      'assets/image/Vector.png',
+                    ),
+                  ),
+                  label: '',
                 ),
-              ),
-              label: '',
-              backgroundColor: Color(0xff552F22),
+                NavigationDestination(
+                  icon: Icon(
+                    Icons.favorite,
+                    color: Colors.white,
+                  ),
+                  selectedIcon: Icon(
+                    Icons.favorite,
+                    color: Color(0xff220C09),
+                  ),
+                  label: '',
+                ),
+                NavigationDestination(
+                  icon: ImageIcon(
+                    color: Colors.white,
+                    AssetImage(
+                      'assets/image/Mask group.png',
+                    ),
+                  ),
+                  selectedIcon: ImageIcon(
+                    color: Color(0xff220C09),
+                    AssetImage(
+                      'assets/image/Mask group.png',
+                    ),
+                  ),
+                  label: '',
+                ),
+                NavigationDestination(
+                  icon: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                  ),
+                  selectedIcon: Icon(
+                    Icons.person,
+                    color: Color(0xff220C09),
+                  ),
+                  label: '',
+                ),
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: '',
-              backgroundColor: Color(0xff552F22),
-            ),
-          ],
-          selectedIconTheme: const IconThemeData(
-            color: Colors.black,
-            size: 28,
-          ),
-          unselectedIconTheme: const IconThemeData(
-            color: Colors.white,
-            size: 28,
           ),
         ),
       ),

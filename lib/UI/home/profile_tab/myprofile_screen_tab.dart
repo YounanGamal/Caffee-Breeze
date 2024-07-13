@@ -11,23 +11,23 @@ class MyprofileScreenTab extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'My Profile',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w400,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 4,
             ),
-            Divider(
+            const Divider(
               color: Colors.white,
               height: 2,
               endIndent: 110,
               indent: 110,
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Row(
@@ -37,10 +37,10 @@ class MyprofileScreenTab extends StatelessWidget {
                   radius: 90,
                   child: Image.asset('assets/image/Ellipse 6.png'),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
-                Text(
+                const Text(
                   '10 Coins',
                   style: TextStyle(
                     color: Color(0xff2C100B),
@@ -50,13 +50,13 @@ class MyprofileScreenTab extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Row(
+            const Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 24),
+                  padding: EdgeInsets.only(left: 24),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -105,7 +105,7 @@ class MyprofileScreenTab extends StatelessWidget {
                 ),
                 Spacer(),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
