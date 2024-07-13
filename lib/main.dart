@@ -4,7 +4,7 @@ import 'package:untitled/UI/auth/sing_in/singin_screen.dart';
 import 'package:untitled/UI/auth/sing_up/singup_screen.dart';
 import 'package:untitled/UI/auth/start_screen/start_screen.dart';
 import 'package:untitled/UI/home/home_screen.dart';
-import 'package:untitled/UI/information_page/info_screen.dart';
+import 'package:untitled/UI/home_details/home_details.dart';
 import 'package:untitled/firebase_options.dart';
 
 void main() async {
@@ -40,7 +40,7 @@ class CaffeeBreeze extends StatelessWidget {
           )),
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
-        InfoScreen.routeName: (context) => InfoScreen(),
+        HomeDetails.routeName: (context) => HomeDetails(),
         StartScreen.routeName: (context) => StartScreen(),
         SingInScreen.routeName: (context) => SingInScreen(),
         SingUpScreen.routeName: (context) => SingUpScreen(),
