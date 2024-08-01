@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CardScreenTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: Color(0xffC29377),
       appBar: AppBar(
         centerTitle: true,
@@ -15,6 +15,13 @@ class CardScreenTab extends StatelessWidget {
             color: Color(0xff552F22),
           ),
         ),
+      ),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return Container(
+
+          );
+        },
       ),
     );
   }

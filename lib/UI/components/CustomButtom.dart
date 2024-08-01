@@ -18,7 +18,7 @@ class _CustomBottomState extends State<CustomBottom> {
         onTap: () {
           setState(() {
             path = path == 'assets/image/Ellipse 2.png'
-                ? 'assets/image/Ellipse 3.png'
+                ? 'assets/image/Property 1=Variant2.png'
                 : 'assets/image/Ellipse 2.png';
           });
         },

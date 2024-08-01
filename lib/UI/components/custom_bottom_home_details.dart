@@ -34,32 +34,36 @@ class _CustomBottomHomeDetailsState extends State<CustomBottomHomeDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 15.0),
-      child: GestureDetector(
-        onTap: () => widget.onTap(widget.index),
-        child: Container(
-          padding: EdgeInsets.only(left: 20),
-          width: 94,
-          height: 27,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
+    return GestureDetector(
+      onTap: () => widget.onTap(widget.index),
+      child: Container(
+        alignment: Alignment.center,
+        // padding: EdgeInsets.only(left: 20),
+        width: 94,
+        height: 27,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          color: widget.isSelected
+              ? const Color(0xff552F22)
+              : const Color(0xffD9D9D9),
+        ),
+        child: Text(
+          widget.nameBottom,
+          style:  TextStyle(
+            fontSize: 20,
+            // color: Colors.black
             color: widget.isSelected
-                ? const Color(0xff552F22)
-                : const Color(0xffD9D9D9),
-          ),
-          child: Text(
-            widget.nameBottom,
-            style: const TextStyle(fontSize: 20, color: Colors.black),
+                ? Colors.white
+                : Colors.black,
           ),
         ),
       ),
     );
   }
 
-  // Color getColor(int index) {
-  //   return index == selectedIndex
-  //       ? const Color(0xff552F22)
-  //       : const Color(0xffD9D9D9);
-  // }
+// Color getColor(int index) {
+//   return index == selectedIndex
+//       ? const Color(0xff552F22)
+//       : const Color(0xffD9D9D9);
+// }
 }

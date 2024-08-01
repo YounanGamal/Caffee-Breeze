@@ -14,6 +14,7 @@ class HomeDetails extends StatefulWidget {
 class _HomeDetailsState extends State<HomeDetails> {
   String path = 'assets/image/Vector1.png';
   int selectedIndex = -1;
+
   void handleTap(int index) {
     setState(() {
       selectedIndex = index;
@@ -140,6 +141,9 @@ class _HomeDetailsState extends State<HomeDetails> {
               style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
             ),
           ),
+          const SizedBox(
+            height: 63,
+          ),
           const Padding(
             padding: EdgeInsets.only(left: 26, top: 12),
             child: Text(
@@ -151,8 +155,9 @@ class _HomeDetailsState extends State<HomeDetails> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 24.0, top: 15),
+            padding: const EdgeInsets.only(left: 24),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomBottomHomeDetails(
                   nameBottom: 'Small',
@@ -160,14 +165,12 @@ class _HomeDetailsState extends State<HomeDetails> {
                   onTap: handleTap,
                   isSelected: selectedIndex == 0,
                 ),
-                Spacer(),
                 CustomBottomHomeDetails(
                   nameBottom: 'Medium',
                   index: 1,
                   onTap: handleTap,
                   isSelected: selectedIndex == 1,
                 ),
-                Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(right: 24.0),
                   child: CustomBottomHomeDetails(
@@ -199,6 +202,9 @@ class _HomeDetailsState extends State<HomeDetails> {
           CustomBottom(
             nameBottom: 'Chocolate  Sauce',
           ),
+          const Spacer(
+            flex: 1,
+          ),
           Padding(
             padding: const EdgeInsets.only(left: 47, top: 20, right: 26),
             child: Row(
@@ -208,7 +214,9 @@ class _HomeDetailsState extends State<HomeDetails> {
                   style: const TextStyle(
                       fontWeight: FontWeight.w400, fontSize: 20),
                 ),
-                Spacer(),
+                const Spacer(
+                  flex: 1,
+                ),
                 InkWell(
                   onTap: () {},
                   child: Container(
@@ -217,7 +225,7 @@ class _HomeDetailsState extends State<HomeDetails> {
                     decoration: BoxDecoration(
                         color: Color(0xff552F22),
                         borderRadius: BorderRadius.circular(5)),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'Add to Cart',
                         style: TextStyle(
@@ -230,6 +238,9 @@ class _HomeDetailsState extends State<HomeDetails> {
                 ),
               ],
             ),
+          ),
+          const SizedBox(
+            height: 20,
           ),
         ],
       ),
