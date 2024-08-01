@@ -4,6 +4,8 @@ class ItemImage extends StatelessWidget {
   List<String> images = [
     'assets/image/Rectangle 4.png',
   ];
+
+  ItemImage({super.key});
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -23,7 +25,7 @@ class ItemImage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 10,bottom: 20),
+                  padding: EdgeInsets.only(left: 10, bottom: 20),
                   child: Text(
                     ' for Today',
                     style: TextStyle(
@@ -33,7 +35,9 @@ class ItemImage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 28,),
+                  padding: EdgeInsets.only(
+                    left: 28,
+                  ),
                   child: Text(
                     'Order any coffee and',
                     style: TextStyle(
@@ -45,7 +49,7 @@ class ItemImage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 72),
                   child: Text(
-                    ' take ice coffee fre',
+                    ' take ice coffee free ',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w400,

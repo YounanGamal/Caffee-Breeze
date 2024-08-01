@@ -23,27 +23,28 @@ class CaffeeBreeze extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-              iconTheme: IconThemeData(color: Color(0xff552F22), size: 40),
-              backgroundColor: Color(0xffE1E0DD),
-              titleTextStyle: TextStyle(
-                  fontFamily: 'Indie Flower',
-                  fontSize: 40,
-                  fontWeight: FontWeight.w400)),
-          primaryColor: Color(0xffC29377),
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: Color(0xffE1E0DD),
-            primary: Color(0xffE1E0DD),
-            onPrimary: Colors.black,
-            secondary: Color(0xffC29377),
-            onSecondary: Color(0xff2C100B),
-          )),
+        appBarTheme: const AppBarTheme(
+            iconTheme: IconThemeData(color: Color(0xff552F22), size: 40),
+            backgroundColor: Color(0xffE1E0DD),
+            titleTextStyle: TextStyle(
+                fontFamily: 'Indie Flower',
+                fontSize: 40,
+                fontWeight: FontWeight.w400)),
+        primaryColor: const Color(0xffC29377),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xffE1E0DD),
+          primary: Color(0xffE1E0DD),
+          onPrimary: Colors.black,
+          secondary: Color(0xffC29377),
+          onSecondary: Color(0xff2C100B),
+        ),
+      ),
       routes: {
-        HomeScreen.routeName: (context) => HomeScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
         HomeDetails.routeName: (context) => HomeDetails(),
-        StartScreen.routeName: (context) => StartScreen(),
-        SingInScreen.routeName: (context) => SingInScreen(),
-        SingUpScreen.routeName: (context) => SingUpScreen(),
+        StartScreen.routeName: (context) => const StartScreen(),
+        SingInScreen.routeName: (context) => const SingInScreen(),
+        SingUpScreen.routeName: (context) => const SingUpScreen(),
       },
       initialRoute: StartScreen.routeName,
     );
