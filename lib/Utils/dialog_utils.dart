@@ -10,8 +10,8 @@ class DialogUtils {
         shadowColor: Colors.blue,
         content: Row(
           children: [
-            CircularProgressIndicator(),
-            SizedBox(
+            const CircularProgressIndicator(),
+            const SizedBox(
               width: 30,
             ),
             Text(message),
@@ -43,7 +43,7 @@ class DialogUtils {
           },
           child: Text(
             posActionTitle,
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           )));
     }
     if (negActionTitel != null) {
@@ -54,7 +54,7 @@ class DialogUtils {
         },
         child: Text(
           negActionTitel,
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.black), // Change this to your desired color
         ),
       ));

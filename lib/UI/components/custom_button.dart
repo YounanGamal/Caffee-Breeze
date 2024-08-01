@@ -5,7 +5,7 @@ class CustomButton extends StatelessWidget {
   double height;
   double width;
 
-  CustomButton({
+  CustomButton({super.key, 
     required this.titlebutton,
     required this.height,
     required this.width,
@@ -18,12 +18,12 @@ class CustomButton extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        color: Color(0xff552F22),
+        color: const Color(0xff552F22),
         borderRadius: BorderRadius.circular(5),
       ),
       child: Text(
         titlebutton,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 25,
           color: Colors.white,
         ),

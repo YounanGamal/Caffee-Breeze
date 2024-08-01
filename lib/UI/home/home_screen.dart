@@ -7,6 +7,8 @@ import 'package:untitled/UI/home/profile_tab/myprofile_screen_tab.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
 
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -15,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedIcon = 0;
 
   List<Widget> tabs = [
-    HomeScreenTab(),
+    const HomeScreenTab(),
     FevoriteScreenTab(),
     CardScreenTab(),
     MyprofileScreenTab()
@@ -24,14 +26,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xffE1E0DD),
+      color: const Color(0xffE1E0DD),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: tabs[selectedIcon],
         bottomNavigationBar: Container(
-          color: Color(0xffC29377),
+          color: const Color(0xffC29377),
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xff552F22),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(15),

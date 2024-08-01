@@ -1,25 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/UI/components/item_caffee.dart';
 import 'package:untitled/UI/components/item_image.dart';
 
-import '../../components/image_scrole.dart';
+import '../../components/image_scrole/image_scrole.dart';
+import '../../components/item_caffee/item_cafee_scrole.dart';
 
-class HomeScreenTab extends StatefulWidget {
-  @override
-  State<HomeScreenTab> createState() => _HomeScreenTabState();
-}
-
-class _HomeScreenTabState extends State<HomeScreenTab> {
-  List<String> caffee = [
-    'assets/image/R 1.png',
-    'assets/image/R 2.png',
-    'assets/image/R 3.png',
-    'assets/image/R 4.png',
-    'assets/image/R 5.png',
-    'assets/image/R 6.png',
-    'assets/image/R 7.png',
-    'assets/image/R 8.png',
-  ];
+class HomeScreenTab extends StatelessWidget {
+  const HomeScreenTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,21 +43,11 @@ class _HomeScreenTabState extends State<HomeScreenTab> {
             ),
           ),
           ImageScrole(),
-          Padding(
-            padding: const EdgeInsets.only(left: 23.0,top: 8,bottom: 8),
+          const Padding(
+            padding: EdgeInsets.only(left: 23.0, top: 8, bottom: 8),
             child: Text('caffee'),
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: caffee.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ItemCaffe(
-                    pathImage: 'assets/image/R ${index + 1}.png',
-                    text: 'dddddd',
-                    price: 'price');
-              },
-            ),
-          ),
+          ItemCafeeScrole(),
         ],
       ),
     );

@@ -8,7 +8,7 @@ import 'package:untitled/Utils/dialog_utils.dart';
 import 'package:untitled/Utils/email_valid.dart';
 
 class SingInScreen extends StatefulWidget {
-  SingInScreen({super.key});
+  const SingInScreen({super.key});
 
   static const String routeName = 'Sing_In';
 
@@ -26,7 +26,7 @@ class _SingInScreenState extends State<SingInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffC29377),
+      backgroundColor: const Color(0xffC29377),
       body: SingleChildScrollView(
         child: Form(
           key: formKey,
@@ -38,7 +38,7 @@ class _SingInScreenState extends State<SingInScreen> {
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CustomTextFormField(
@@ -57,7 +57,7 @@ class _SingInScreenState extends State<SingInScreen> {
                 hintText: 'Email',
                 icon: Icons.email,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 18,
               ),
               CustomTextFormField(
@@ -70,6 +70,7 @@ class _SingInScreenState extends State<SingInScreen> {
                   if (input.length <= 8) {
                     return 'Error, password must be at least 8 chars';
                   }
+                  return null;
                 },
                 keyboardType: TextInputType.visiblePassword,
                 hintText: 'Password',
@@ -79,13 +80,13 @@ class _SingInScreenState extends State<SingInScreen> {
                 padding: const EdgeInsets.only(left: 8.0),
                 child: TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Forgot Password?',
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 70,
               ),
               Center(
@@ -99,9 +100,9 @@ class _SingInScreenState extends State<SingInScreen> {
                     width: 160,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xff552F22),
+                      color: const Color(0xff552F22),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Sign in',
                       style: TextStyle(
                         fontSize: 28,
@@ -111,13 +112,13 @@ class _SingInScreenState extends State<SingInScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Don’t have an Account? ',
                     style: TextStyle(
                       fontSize: 20,
@@ -129,7 +130,7 @@ class _SingInScreenState extends State<SingInScreen> {
                       Navigator.pushReplacementNamed(
                           context, SingUpScreen.routeName);
                     },
-                    child: Text(
+                    child: const Text(
                       'Sign up',
                       style: TextStyle(
                         fontSize: 24,
@@ -176,7 +177,7 @@ class _SingInScreenState extends State<SingInScreen> {
             posActionTitle: 'try agin');
       }
     } catch (e) {
-      DialogUtils.showMessage(context, '${e.toString()}');
+      DialogUtils.showMessage(context, e.toString());
     }
   }
 }

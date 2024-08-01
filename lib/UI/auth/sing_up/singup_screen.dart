@@ -8,7 +8,7 @@ import 'package:untitled/Utils/email_valid.dart';
 class SingUpScreen extends StatefulWidget {
   static const String routeName = 'SingUp';
 
-  SingUpScreen({super.key});
+  const SingUpScreen({super.key});
 
   @override
   State<SingUpScreen> createState() => _SingUpScreenState();
@@ -66,6 +66,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   if (input.length <= 8) {
                     return 'Error, full name must be at least 8 chars';
                   }
+                  return null;
                 },
                 hintText: 'Name',
                 icon: Icons.person,
@@ -83,6 +84,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   if (input.length >= 8) {
                     return 'Error, full name must be at least 8 chars';
                   }
+                  return null;
                 },
                 hintText: 'date of Birth',
                 icon: Icons.date_range_rounded,
@@ -100,6 +102,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   if (input.length <= 8) {
                     return 'Error, place must be at least 8 chars';
                   }
+                  return null;
                 },
                 hintText: 'Place',
                 icon: Icons.location_on_sharp,
@@ -117,6 +120,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   if (input.length != 11) {
                     return 'Error, the number phone';
                   }
+                  return null;
                 },
                 hintText: 'Phone',
                 icon: Icons.phone,
@@ -134,6 +138,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   if (!isValidEmail(input)) {
                     return 'Email bad format';
                   }
+                  return null;
                 },
                 hintText: 'Email',
                 icon: Icons.email,
@@ -152,6 +157,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   if (input.length <= 8) {
                     return 'Error, password must be at least 8 chars';
                   }
+                  return null;
                 },
                 hintText: 'Password',
                 icon: Icons.lock,
@@ -173,6 +179,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   if (passwordController.text != input) {
                     return 'password not match';
                   }
+                  return null;
                 },
                 hintText: 'Confirm Password',
                 icon: Icons.lock,
@@ -191,7 +198,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                     width: 160,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xff552F22),
+                      color: const Color(0xff552F22),
                     ),
                     child: const Text(
                       'Sign up',
@@ -276,7 +283,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
         );
       }
     } catch (e) {
-      DialogUtils.showMessage(context, '${e.toString()}');
+      DialogUtils.showMessage(context, e.toString());
     }
   }
 }
