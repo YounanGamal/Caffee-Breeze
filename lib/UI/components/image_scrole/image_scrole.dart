@@ -67,6 +67,7 @@ class _ImageScroleState extends State<ImageScrole> {
 }
 
 class ImageDetailsArgs {
+  int count =1;
   String pathImage;
   String name;
   String price;

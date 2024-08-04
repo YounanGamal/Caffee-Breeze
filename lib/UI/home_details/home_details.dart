@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:untitled/UI/components/CustomButtom.dart';
 import 'package:untitled/UI/components/custom_bottom_home_details.dart';
 import 'package:untitled/UI/components/image_scrole/image_scrole.dart';
+import 'package:untitled/UI/components/item_caffee/item_caffee.dart';
+import 'package:untitled/UI/home/card_tab/card_screen_tab.dart';
 
 class HomeDetails extends StatefulWidget {
   static const String routeName = 'info';
-  int number = 1;
 
   @override
   State<HomeDetails> createState() => _HomeDetailsState();
@@ -23,6 +24,7 @@ class _HomeDetailsState extends State<HomeDetails> {
 
   @override
   Widget build(BuildContext context) {
+
     final args =
         ModalRoute.of(context)?.settings.arguments as ImageDetailsArgs?;
 
@@ -66,8 +68,8 @@ class _HomeDetailsState extends State<HomeDetails> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    if (widget.number > 1) {
-                      widget.number--;
+                    if (args.count > 1) {
+                      args.count--;
                     }
                     setState(() {});
                   },
@@ -88,7 +90,7 @@ class _HomeDetailsState extends State<HomeDetails> {
                       alignment: Alignment.center,
                       width: 45,
                       child: Text(
-                        '${widget.number}',
+                        '${args.count}',
                         style: const TextStyle(
                             fontSize: 24,
                             color: Colors.white,
@@ -106,7 +108,8 @@ class _HomeDetailsState extends State<HomeDetails> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    widget.number++;
+                    args.count++;
+                    // widget.number++;
                     setState(() {});
                   },
                   child: Container(
@@ -218,7 +221,14 @@ class _HomeDetailsState extends State<HomeDetails> {
                   flex: 1,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    CardScreenTab.items.add(ItemCaffe(
+                      pathImage: args.pathImage,
+                      name: args.name,
+                      price: args.price,
+                      iconAndNumber: args.count.toString(),
+                    ));
+                  },
                   child: Container(
                     width: 160,
                     height: 36,
