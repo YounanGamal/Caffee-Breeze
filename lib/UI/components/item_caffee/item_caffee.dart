@@ -4,13 +4,18 @@ import 'package:untitled/UI/home_details/home_details.dart';
 
 class ItemCaffe extends StatelessWidget {
   String pathImage;
-  String text;
+  String name;
   String price;
-  ItemCaffe(
-      {super.key,
-      required this.pathImage,
-      required this.text,
-      required this.price});
+  String iconAndNumber;
+
+  ItemCaffe({
+    super.key,
+    required this.pathImage,
+    required this.name,
+    required this.price,
+    this.iconAndNumber = '+',
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +35,7 @@ class ItemCaffe extends StatelessWidget {
                 context,
                 HomeDetails.routeName,
                 arguments: ImageDetailsArgs(
-                    pathImage: pathImage, name: text, price: price),
+                    pathImage: pathImage, name: name, price: price),
               );
             },
             child: Padding(
@@ -48,14 +53,14 @@ class ItemCaffe extends StatelessWidget {
                 context,
                 HomeDetails.routeName,
                 arguments: ImageDetailsArgs(
-                    pathImage: pathImage, name: text, price: price),
+                    pathImage: pathImage, name: name, price: price),
               );
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  text,
+                  name,
                   style: const TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 15,
@@ -74,15 +79,22 @@ class ItemCaffe extends StatelessWidget {
             flex: 1,
           ),
           Container(
-              margin: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.white,
+            alignment: Alignment.center,
+            width: 40,
+            margin: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.white,
+            ),
+            child: Text(
+              iconAndNumber,
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color(0xff2C100B),
               ),
-              child: const ImageIcon(
-                AssetImage('assets/image/+.png'),
-                size: 36,
-              ))
+            ),
+          )
         ],
       ),
     );

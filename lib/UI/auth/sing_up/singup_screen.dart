@@ -117,7 +117,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   if (input == null || input.trim().isEmpty) {
                     return 'Please enter phone';
                   }
-                  if (input.length != 11) {
+                  if (!isValidMobile(input)) {
                     return 'Error, the number phone';
                   }
                   return null;
