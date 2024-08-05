@@ -4,6 +4,7 @@ import 'package:untitled/UI/components/custom_bottom_home_details.dart';
 import 'package:untitled/UI/components/image_scrole/image_scrole.dart';
 import 'package:untitled/UI/components/item_caffee/item_caffee.dart';
 import 'package:untitled/UI/home/card_tab/card_screen_tab.dart';
+import 'package:untitled/UI/home/favourite_tab/favourite_screen_tab.dart';
 
 class HomeDetails extends StatefulWidget {
   static const String routeName = 'info';
@@ -24,7 +25,6 @@ class _HomeDetailsState extends State<HomeDetails> {
 
   @override
   Widget build(BuildContext context) {
-
     final args =
         ModalRoute.of(context)?.settings.arguments as ImageDetailsArgs?;
 
@@ -130,6 +130,23 @@ class _HomeDetailsState extends State<HomeDetails> {
                       path = path == 'assets/image/Vector1.png'
                           ? 'assets/image/Variant2.png'
                           : 'assets/image/Vector1.png';
+                      if(path=='assets/image/Variant2.png'){
+                        FavouriteScreenTab.favourites.add(
+                          ItemCaffe(
+                            pathImage: args.pathImage,
+                            name: args.name,
+                            price: args.price,
+                          ),
+                        );
+                      }else if(path =='assets/image/Vector1.png' ){
+                        FavouriteScreenTab.favourites.remove(
+                          ItemCaffe(
+                            pathImage: args.pathImage,
+                            name: args.name,
+                            price: args.price,
+                          ),
+                        );
+                      }
                     });
                   },
                   child: Image.asset(path),

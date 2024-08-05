@@ -15,26 +15,33 @@ class SingUpScreen extends StatefulWidget {
 }
 
 class _SingUpScreenState extends State<SingUpScreen> {
-  TextEditingController nameController =
-      TextEditingController(text: 'ewrwerwer');
+  TextEditingController nameController = TextEditingController(
+    // text: 'ewrwerwer',
+  );
 
-  TextEditingController dateOfBirthController =
-      TextEditingController(text: '2005');
+  TextEditingController dateOfBirthController = TextEditingController(
+    // text: '2005',
+  );
 
-  TextEditingController placeController =
-      TextEditingController(text: 'adwedeceef');
+  TextEditingController placeController = TextEditingController(
+    // text: 'adwedeceef',
+  );
 
-  TextEditingController phoneController =
-      TextEditingController(text: '01211111111');
+  TextEditingController phoneController = TextEditingController(
+    // text: '01211111111',
+  );
 
-  TextEditingController emailController =
-      TextEditingController(text: 'you@ret.uuy');
+  TextEditingController emailController = TextEditingController(
+    // text: 'you@ret.uuy',
+  );
 
-  TextEditingController passwordController =
-      TextEditingController(text: '123456789');
+  TextEditingController passwordController = TextEditingController(
+    // text: '123456789',
+  );
 
-  TextEditingController passwordConfirmController =
-      TextEditingController(text: '123456789');
+  TextEditingController passwordConfirmController = TextEditingController(
+    // text: '123456789',
+  );
 
   var formKey = GlobalKey<FormState>();
 
@@ -86,7 +93,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   }
                   return null;
                 },
-                hintText: 'date of Birth',
+                hintText: 'year of Birth',
                 icon: Icons.date_range_rounded,
               ),
               const SizedBox(
@@ -99,9 +106,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   if (input == null || input.trim().isEmpty) {
                     return 'Please enter place';
                   }
-                  if (input.length <= 8) {
-                    return 'Error, place must be at least 8 chars';
-                  }
+
                   return null;
                 },
                 hintText: 'Place',
@@ -271,7 +276,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
           Navigator.pushReplacementNamed(context, SingInScreen.routeName);
         },
       );
-          
+
       print('uid = ${credential.user?.uid}');
     } on FirebaseAuthException catch (e) {
       DialogUtils.hideDialog(context);

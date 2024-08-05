@@ -63,7 +63,7 @@ class ItemCaffe extends StatelessWidget {
                   name,
                   style: const TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: 15,
+                      fontSize: 12,
                       color: Colors.white),
                 ),
                 Text(
