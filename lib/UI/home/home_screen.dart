@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/UI/home/card_tab/card_screen_tab.dart';
-import 'package:untitled/UI/home/fevorite_tab/fevorite_screen_tab.dart';
+import 'package:untitled/UI/home/favourite_tab/favourite_screen_tab.dart';
 import 'package:untitled/UI/home/home_tab/homescreen_tab.dart';
 import 'package:untitled/UI/home/profile_tab/myprofile_screen_tab.dart';
 
@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> tabs = [
     const HomeScreenTab(),
-    FevoriteScreenTab(),
+    FavouriteScreenTab(),
     CardScreenTab(),
     MyprofileScreenTab()
   ];
